@@ -5,6 +5,8 @@ description: Global economy news, policy updates and financial market analysis
 category: economy
 ---
 
+{% from "breadcrumb.njk" import renderBreadcrumb %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -13,6 +15,10 @@ category: economy
   "description": "{{ description }}"
 }
 </script>
+
+{{ renderBreadcrumb([
+  {"name": "Economy", "url": "/economy/"}
+]) }}
 
 <h1>Economy News</h1>
 <p>Global economic updates and policy news</p>

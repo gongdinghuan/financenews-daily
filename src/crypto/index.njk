@@ -5,6 +5,8 @@ description: Latest crypto news, Bitcoin updates and blockchain developments
 category: crypto
 ---
 
+{% from "breadcrumb.njk" import renderBreadcrumb %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -13,6 +15,10 @@ category: crypto
   "description": "{{ description }}"
 }
 </script>
+
+{{ renderBreadcrumb([
+  {"name": "Crypto", "url": "/crypto/"}
+]) }}
 
 <h1>Cryptocurrency News</h1>
 <p>Bitcoin, Ethereum and altcoin updates</p>

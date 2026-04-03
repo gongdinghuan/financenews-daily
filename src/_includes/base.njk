@@ -4,18 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} | {{ site.name }}</title>
-  <meta name="description" content="{{ description or site.description }}">
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description or site.description }}">
+  <meta name="description" content="{{ description or article.summary or site.description }}">
+  <meta property="og:title" content="{{ title or article.title }}">
+  <meta property="og:description" content="{{ description or article.summary or site.description }}">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:image" content="{{ site.url }}/static/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ title }}">
-  <meta name="twitter:description" content="{{ description or site.description }}">
+  <meta name="twitter:title" content="{{ title or article.title }}">
+  <meta name="twitter:description" content="{{ description or article.summary or site.description }}">
   <meta name="twitter:image" content="{{ site.url }}/static/og-image.svg">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} RSS Feed" href="{{ site.url }}/feed.xml">
   <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
   <link rel="stylesheet" href="/static/css/style.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6367242906217748" crossorigin="anonymous"></script>
@@ -38,6 +39,31 @@
   </button>
 
   <script>
+    // Dark mode toggle
+    (function() {
+      const toggle = document.getElementById('darkModeToggle');
+      const sunIcon = toggle?.querySelector('.sun-icon');
+      const moonIcon = toggle?.querySelector('.moon-icon');
+
+      // Check saved preference or system preference
+      const saved = localStorage.getItem('darkMode');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (saved === 'true' || (!saved && systemDark)) {
+        document.documentElement.classList.add('dark-mode');
+        if (sunIcon) sunIcon.style.display = 'none';
+        if (moonIcon) moonIcon.style.display = 'block';
+      }
+
+      toggle?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark-mode');
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDark.toString());
+        if (sunIcon) sunIcon.style.display = isDark ? 'none' : 'block';
+        if (moonIcon) moonIcon.style.display = isDark ? 'block' : 'none';
+      });
+    })();
+
     // Scroll to top button
     const scrollTop = document.getElementById('scrollTop');
     if (scrollTop) {

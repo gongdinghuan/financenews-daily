@@ -5,10 +5,21 @@ pagination:
   size: 1
   alias: article
 permalink: "news/{{ article.slug }}/index.html"
+description: "{{ article.summary }}"
 ---
+
+{% from "breadcrumb.njk" import renderBreadcrumb %}
+
+<meta name="description" content="{{ article.summary }}">
+<meta property="og:description" content="{{ article.summary }}">
 
 <article class="article">
   <header class="article-header">
+    {{ renderBreadcrumb([
+      {"name": article.category | capitalize, "url": "/" + article.category + "/"},
+      {"name": article.title | truncate(30), "url": null}
+    ]) }}
+
     <span class="category-badge {{ article.category }}">{{ article.category }}</span>
     <h1>{{ article.title }}</h1>
     <div class="article-meta">
@@ -62,6 +73,7 @@ permalink: "news/{{ article.slug }}/index.html"
   "@context": "https://schema.org",
   "@type": "NewsArticle",
   "headline": "{{ article.title }}",
+  "description": "{{ article.summary | truncate(200) }}",
   "datePublished": "{{ article.pubDate }}",
   "dateModified": "{{ article.pubDate }}",
   "author": {

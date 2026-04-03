@@ -5,6 +5,8 @@ description: Latest forex market news, currency analysis and trading updates
 category: forex
 ---
 
+{% from "breadcrumb.njk" import renderBreadcrumb %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -13,6 +15,10 @@ category: forex
   "description": "{{ description }}"
 }
 </script>
+
+{{ renderBreadcrumb([
+  {"name": "Forex", "url": "/forex/"}
+]) }}
 
 <h1>Forex News</h1>
 <p>Currency market updates and analysis</p>

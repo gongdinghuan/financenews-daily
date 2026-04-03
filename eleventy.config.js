@@ -1,6 +1,5 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static");
-  eleventyConfig.addPassthroughCopy({ "src/_data/news.json": "news.json" });
 
   // Date filter with format support
   eleventyConfig.addFilter("date", function(date, format) {
@@ -16,6 +15,14 @@ module.exports = function(eleventyConfig) {
       month: 'short',
       day: 'numeric'
     });
+  });
+
+  // RFC 822 date format for RSS feeds
+  eleventyConfig.addFilter("rfc822Date", function(date) {
+    if (!date) return new Date().toUTCString();
+    const d = new Date(date);
+    if (isNaN(d)) return new Date().toUTCString();
+    return d.toUTCString();
   });
 
   // Slugify filter

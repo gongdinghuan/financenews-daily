@@ -1,0 +1,10 @@
+{%- macro renderBreadcrumb(items) -%}
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    <li><a href="/"><span>Home</span></a></li>
+    {%- for item in items -%}
+    <li>{% if loop.last %}<span aria-current="page">{{ item.name }}</span>{% else %}<a href="{{ item.url }}"><span>{{ item.name }}</span></a>{% endif %}</li>
+    {%- endfor -%}
+  </ol>
+</nav>
+{%- endmacro -%}

@@ -5,6 +5,8 @@ description: Latest stock market news, analysis and updates
 category: stocks
 ---
 
+{% from "breadcrumb.njk" import renderBreadcrumb %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -13,6 +15,10 @@ category: stocks
   "description": "{{ description }}"
 }
 </script>
+
+{{ renderBreadcrumb([
+  {"name": "Stocks", "url": "/stocks/"}
+]) }}
 
 <h1>Stocks News</h1>
 <p>Latest updates from the stock market</p>
