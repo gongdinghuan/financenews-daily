@@ -1,5 +1,6 @@
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/static");
+  eleventyConfig.addPassthroughCopy({ "src/_data/news.json": "news.json" });
 
   // Date filter with format support
   eleventyConfig.addFilter("date", function(date, format) {
