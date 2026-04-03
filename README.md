@@ -65,17 +65,7 @@ npm run serve
 
 ## Configuration
 
-### AdSense
 
-Replace `ca-pub-XXXXXXXX` in templates with your AdSense publisher ID.
-
-### Affiliate Links
-
-Update affiliate links in `src/_includes/sidebar.njk` and article templates.
-
-### RSS Sources
-
-Edit `scripts/fetch-news.js` to customize news sources.
 
 ## License
 
