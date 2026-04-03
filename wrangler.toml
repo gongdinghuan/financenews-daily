@@ -1,9 +1,14 @@
 name = "financenews-daily"
 main = "workers.js"
 compatibility_date = "2024-01-01"
+assets = { directory = "./_site", binding = "ASSETS" }
 
-[site]
-bucket = "./_site"
+# Development mode (free)
+# workers_dev = true  # Deploy to *.workers.dev subdomain
+
+# Production mode (requires paid plan and custom domain)
+# workers_dev = false
+# routes = [{ pattern = "financenews-daily.yourdomain.com", custom_domain = true }]
 
 # Optional: Add your production domain
 # workers_dev = false
