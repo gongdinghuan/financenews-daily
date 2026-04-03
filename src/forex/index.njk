@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Forex News
+description: Latest forex market news, currency analysis and trading updates
+category: forex
+---
+
+<h1>Forex News</h1>
+<p>Currency market updates and analysis</p>
+
+<div class="ad-slot top-banner">Advertisement</div>
+
+<div class="news-grid">
+  {% for item in news | filterBy('category', 'forex') %}
+  <article class="news-card">
+    <div class="news-card-content">
+      <span class="category-badge forex">forex</span>
+      <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+      <h2><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h2>
+      <p>{{ item.summary | truncate(150) }}</p>
+      <a href="/news/{{ item.slug }}/">Read more →</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>

@@ -1,0 +1,75 @@
+---
+layout: base.njk
+pagination:
+  data: news
+  size: 1
+  alias: article
+permalink: "news/{{ article.slug }}/index.html"
+---
+
+<article class="article">
+  <header class="article-header">
+    <span class="category-badge {{ article.category }}">{{ article.category }}</span>
+    <h1>{{ article.title }}</h1>
+    <div class="article-meta">
+      Source: <strong>{{ article.source }}</strong> | {{ article.pubDate | date }}
+    </div>
+  </header>
+
+  <div class="ad-slot top-banner">Advertisement</div>
+
+  <div class="article-body">
+    <p>{{ article.summary }}</p>
+
+    <div class="ad-slot in-article-ad">Advertisement</div>
+
+    <p><em>This is a summary. For the complete article, please visit the original source.</em></p>
+
+    <a href="{{ article.link }}" class="read-full" target="_blank" rel="noopener noreferrer nofollow">
+      Read Full Article on {{ article.source }} →
+    </a>
+  </div>
+
+  <div class="affiliate-cta">
+    <h3>Start Trading Today</h3>
+    <p>Join millions of traders on these trusted platforms:</p>
+    <a href="https://www.etoro.com" class="affiliate-btn" target="_blank" rel="nofollow sponsored">Trade on eToro</a>
+    <a href="https://www.binance.com" class="affiliate-btn" target="_blank" rel="nofollow sponsored">Buy Crypto on Binance</a>
+  </div>
+</article>
+
+<section class="related">
+  <h2>Related News</h2>
+  <div class="news-grid">
+    {% for item in news %}
+      {% if item.category == article.category and item.slug != article.slug %}
+        {% if loop.index0 < 3 %}
+        <article class="news-card">
+          <div class="news-card-content">
+            <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+            <h2><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h2>
+            <p>{{ item.summary | truncate(100) }}</p>
+          </div>
+        </article>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ article.title }}",
+  "datePublished": "{{ article.pubDate }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.name }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}/news/{{ article.slug }}/"
+  }
+}
+</script>

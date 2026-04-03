@@ -1,0 +1,27 @@
+<aside class="sidebar">
+  <div class="ad-slot sidebar-ad">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXX"
+         data-ad-slot="XXXXXXXX"
+         data-ad-format="vertical"></ins>
+  </div>
+
+  <div class="affiliate-promo">
+    <h3>Recommended Platforms</h3>
+    <ul>
+      <li><a href="https://www.etoro.com" rel="nofollow sponsored" target="_blank">eToro - Trade Stocks & Forex</a></li>
+      <li><a href="https://www.binance.com" rel="nofollow sponsored" target="_blank">Binance - Crypto Exchange</a></li>
+      <li><a href="https://www.interactivebrokers.com" rel="nofollow sponsored" target="_blank">Interactive Brokers</a></li>
+    </ul>
+  </div>
+
+  <div class="trending">
+    <h3>Trending</h3>
+    <ul>
+      {% for item in news | slice(0, 5) %}
+      <li><a href="/news/{{ item.slug }}/">{{ item.title | truncate(50) }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Economy News
+description: Global economy news, policy updates and financial market analysis
+category: economy
+---
+
+<h1>Economy News</h1>
+<p>Global economic updates and policy news</p>
+
+<div class="ad-slot top-banner">Advertisement</div>
+
+<div class="news-grid">
+  {% for item in news | filterBy('category', 'economy') %}
+  <article class="news-card">
+    <div class="news-card-content">
+      <span class="category-badge economy">economy</span>
+      <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+      <h2><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h2>
+      <p>{{ item.summary | truncate(150) }}</p>
+      <a href="/news/{{ item.slug }}/">Read more →</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>

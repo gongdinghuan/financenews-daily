@@ -1,0 +1,14 @@
+{
+  "name": "financenews-daily",
+  "version": "1.0.0",
+  "description": "Financial news aggregation website",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "fetch": "node scripts/fetch-news.js"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "rss-parser": "^3.13.0"
+  }
+}

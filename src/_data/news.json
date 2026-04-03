@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Markets Rally on Strong Economic Data",
+    "slug": "markets-rally-strong-economic-data-001",
+    "summary": "Global stock markets rallied today following the release of better-than-expected economic data. Investors showed renewed confidence as inflation indicators pointed to a potential cooling trend.",
+    "link": "https://example.com/news/1",
+    "pubDate": "2026-04-03T10:00:00Z",
+    "category": "stocks",
+    "source": "Reuters"
+  },
+  {
+    "title": "Bitcoin Surges Past Key Resistance Level",
+    "slug": "bitcoin-surges-past-key-resistance-002",
+    "summary": "Bitcoin broke through a major resistance level today, triggering bullish sentiment across the cryptocurrency market. Analysts point to increased institutional adoption as a key driver.",
+    "link": "https://example.com/news/2",
+    "pubDate": "2026-04-03T09:30:00Z",
+    "category": "crypto",
+    "source": "CoinDesk"
+  },
+  {
+    "title": "EUR/USD Technical Analysis: Key Levels to Watch",
+    "slug": "eur-usd-technical-analysis-key-levels-003",
+    "summary": "The EUR/USD pair is trading at a critical juncture as traders await key economic data releases. Support and resistance levels have been identified for the coming trading sessions.",
+    "link": "https://example.com/news/3",
+    "pubDate": "2026-04-03T09:00:00Z",
+    "category": "forex",
+    "source": "FXStreet"
+  },
+  {
+    "title": "Federal Reserve Signals Potential Rate Pause",
+    "slug": "federal-reserve-signals-potential-rate-pause-004",
+    "summary": "The Federal Reserve has signaled that it may pause interest rate hikes in the coming months, citing improved inflation data and a cooling labor market.",
+    "link": "https://example.com/news/4",
+    "pubDate": "2026-04-03T08:30:00Z",
+    "category": "economy",
+    "source": "Bloomberg"
+  },
+  {
+    "title": "Tech Stocks Lead Market Gains",
+    "slug": "tech-stocks-lead-market-gains-005",
+    "summary": "Technology stocks outperformed the broader market today, with major tech companies reporting strong quarterly earnings and optimistic forward guidance.",
+    "link": "https://example.com/news/5",
+    "pubDate": "2026-04-03T08:00:00Z",
+    "category": "stocks",
+    "source": "CNBC"
+  },
+  {
+    "title": "Ethereum Network Upgrade Announced",
+    "slug": "ethereum-network-upgrade-announced-006",
+    "summary": "The Ethereum Foundation has announced a major network upgrade scheduled for next month, promising improved scalability and reduced gas fees.",
+    "link": "https://example.com/news/6",
+    "pubDate": "2026-04-03T07:30:00Z",
+    "category": "crypto",
+    "source": "Cointelegraph"
+  },
+  {
+    "title": "USD/JPY Breaks Above 150 Level",
+    "slug": "usd-jpy-breaks-above-150-level-007",
+    "summary": "The USD/JPY currency pair has broken above the psychologically important 150 level for the first time in several months.",
+    "link": "https://example.com/news/7",
+    "pubDate": "2026-04-03T07:00:00Z",
+    "category": "forex",
+    "source": "DailyFX"
+  },
+  {
+    "title": "China GDP Growth Exceeds Expectations",
+    "slug": "china-gdp-growth-exceeds-expectations-008",
+    "summary": "China's economy grew faster than expected in the first quarter, boosted by strong manufacturing activity and consumer spending.",
+    "link": "https://example.com/news/8",
+    "pubDate": "2026-04-03T06:30:00Z",
+    "category": "economy",
+    "source": "Reuters"
+  }
+]

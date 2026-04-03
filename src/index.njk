@@ -1,0 +1,108 @@
+---
+layout: base.njk
+title: Latest Financial News
+description: Your daily source for stocks, forex, crypto and economy news from top financial sources
+---
+
+<section class="hero">
+  <h1>Today's Financial Headlines</h1>
+  <p>Real-time news from top financial sources, updated hourly</p>
+</section>
+
+<div class="ad-slot top-banner">Advertisement</div>
+
+<section class="news-section">
+  <h2>Top Stories</h2>
+  <div class="news-grid">
+    {% for item in news %}
+    {% if loop.index0 < 5 %}
+    <article class="news-card">
+      <div class="news-card-content">
+        <span class="category-badge {{ item.category }}">{{ item.category }}</span>
+        <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+        <h3><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h3>
+        <p>{{ item.summary | truncate(150) }}</p>
+      </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<div class="ad-slot in-article-ad">Advertisement</div>
+
+<section class="news-section">
+  <h2>Stocks News</h2>
+  <div class="news-grid">
+    {% for item in news %}
+    {% if item.category == 'stocks' and loop.index0 < 3 %}
+    <article class="news-card">
+      <div class="news-card-content">
+        <span class="category-badge stocks">stocks</span>
+        <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+        <h3><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h3>
+        <p>{{ item.summary | truncate(120) }}</p>
+      </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <a href="/stocks/" class="view-all">View all stocks news →</a>
+</section>
+
+<section class="news-section">
+  <h2>Forex News</h2>
+  <div class="news-grid">
+    {% for item in news %}
+    {% if item.category == 'forex' and loop.index0 < 3 %}
+    <article class="news-card">
+      <div class="news-card-content">
+        <span class="category-badge forex">forex</span>
+        <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+        <h3><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h3>
+        <p>{{ item.summary | truncate(120) }}</p>
+      </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <a href="/forex/" class="view-all">View all forex news →</a>
+</section>
+
+<section class="news-section">
+  <h2>Crypto News</h2>
+  <div class="news-grid">
+    {% for item in news %}
+    {% if item.category == 'crypto' and loop.index0 < 3 %}
+    <article class="news-card">
+      <div class="news-card-content">
+        <span class="category-badge crypto">crypto</span>
+        <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+        <h3><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h3>
+        <p>{{ item.summary | truncate(120) }}</p>
+      </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <a href="/crypto/" class="view-all">View all crypto news →</a>
+</section>
+
+<section class="news-section">
+  <h2>Economy News</h2>
+  <div class="news-grid">
+    {% for item in news %}
+    {% if item.category == 'economy' and loop.index0 < 3 %}
+    <article class="news-card">
+      <div class="news-card-content">
+        <span class="category-badge economy">economy</span>
+        <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+        <h3><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h3>
+        <p>{{ item.summary | truncate(120) }}</p>
+      </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <a href="/economy/" class="view-all">View all economy news →</a>
+</section>

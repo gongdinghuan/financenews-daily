@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Stocks News
+description: Latest stock market news, analysis and updates
+category: stocks
+---
+
+<h1>Stocks News</h1>
+<p>Latest updates from the stock market</p>
+
+<div class="ad-slot top-banner">Advertisement</div>
+
+<div class="news-grid">
+  {% for item in news | filterBy('category', 'stocks') %}
+  <article class="news-card">
+    <div class="news-card-content">
+      <span class="category-badge stocks">stocks</span>
+      <div class="news-card-meta">{{ item.source }} | {{ item.pubDate | date }}</div>
+      <h2><a href="/news/{{ item.slug }}/">{{ item.title }}</a></h2>
+      <p>{{ item.summary | truncate(150) }}</p>
+      <a href="/news/{{ item.slug }}/">Read more →</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>
