@@ -12,7 +12,7 @@ permalink: "news/{{ article.slug }}/index.html"
     <span class="category-badge {{ article.category }}">{{ article.category }}</span>
     <h1>{{ article.title }}</h1>
     <div class="article-meta">
-      Source: <strong>{{ article.source }}</strong> | {{ article.pubDate | date }}
+      Source: <strong>{{ article.source }}</strong> | {{ article.pubDate | date }} <span class="reading-time">| 1 min read</span>
     </div>
   </header>
 
@@ -63,13 +63,30 @@ permalink: "news/{{ article.slug }}/index.html"
   "@type": "NewsArticle",
   "headline": "{{ article.title }}",
   "datePublished": "{{ article.pubDate }}",
+  "dateModified": "{{ article.pubDate }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.name }} Editorial Team"
+  },
   "publisher": {
     "@type": "Organization",
-    "name": "{{ site.name }}"
+    "name": "{{ site.name }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/static/favicon.svg"
+    }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ site.url }}/news/{{ article.slug }}/"
-  }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ site.url }}/static/og-image.svg",
+    "width": 1200,
+    "height": 630
+  },
+  "articleSection": "{{ article.category }}",
+  "keywords": "{{ article.category }}, financial news, {{ site.name }}"
 }
 </script>

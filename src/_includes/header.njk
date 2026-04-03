@@ -8,6 +8,89 @@
       <a href="/crypto/">Crypto</a>
       <a href="/economy/">Economy</a>
       <a href="/about/">About</a>
+      <button class="search-toggle" id="searchToggle" aria-label="Toggle search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
     </nav>
   </div>
 </header>
+
+<div class="search-bar" id="searchBar" style="display: none;">
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search news..." class="search-input" />
+    <button class="search-btn" id="searchBtn">Search</button>
+    <button class="search-close" id="searchClose">×</button>
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<script>
+(function() {
+  const searchToggle = document.getElementById('searchToggle');
+  const searchBar = document.getElementById('searchBar');
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  const searchClose = document.getElementById('searchClose');
+  const searchResults = document.getElementById('searchResults');
+
+  if (!searchToggle || !searchBar) return;
+
+  searchToggle.addEventListener('click', () => {
+    searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
+    if (searchBar.style.display === 'block') searchInput.focus();
+  });
+
+  searchClose.addEventListener('click', () => {
+    searchBar.style.display = 'none';
+    searchResults.innerHTML = '';
+  });
+
+  // Load news data for search
+  let newsData = [];
+  fetch('/news.json')
+    .then(r => r.json())
+    .then(data => { newsData = data; })
+    .catch(() => {});
+
+  function searchNews(query) {
+    if (!query || query.length < 2) {
+      searchResults.innerHTML = '';
+      return;
+    }
+    const q = query.toLowerCase();
+    const matches = newsData.filter(item =>
+      item.title.toLowerCase().includes(q) ||
+      item.summary.toLowerCase().includes(q)
+    ).slice(0, 10);
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = '<div class="search-no-results">No results found</div>';
+      return;
+    }
+
+    searchResults.innerHTML = matches.map(item => `
+      <div class="search-result-item">
+        <a href="/news/${item.slug}/">
+          <div class="search-result-title">${escapeHtml(item.title)}</div>
+          <div class="search-result-meta">${escapeHtml(item.source)} | ${item.category}</div>
+        </a>
+      </div>
+    `).join('');
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  searchBtn.addEventListener('click', () => searchNews(searchInput.value));
+  searchInput.addEventListener('input', (e) => searchNews(e.target.value));
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') searchNews(searchInput.value);
+  });
+})();
+</script>

@@ -10,7 +10,13 @@
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/static/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}/static/og-image.svg">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
   <link rel="stylesheet" href="/static/css/style.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6367242906217748" crossorigin="anonymous"></script>
 </head>
@@ -23,5 +29,25 @@
     {% include "sidebar.njk" %}
   </main>
   {% include "footer.njk" %}
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top" style="display: none;">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </button>
+
+  <script>
+    // Scroll to top button
+    const scrollTop = document.getElementById('scrollTop');
+    if (scrollTop) {
+      window.addEventListener('scroll', () => {
+        scrollTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
+      });
+      scrollTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
 </body>
 </html>

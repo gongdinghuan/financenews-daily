@@ -1,0 +1,148 @@
+---
+layout: base.njk
+title: Page Not Found
+description: The page you're looking for doesn't exist or has been moved
+permalink: /404.html
+---
+
+<div class="error-page">
+  <div class="error-content">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
+
+    <div class="error-actions">
+      <a href="/" class="error-btn primary">Back to Home</a>
+      <a href="/stocks/" class="error-btn secondary">Browse Stocks</a>
+      <a href="/crypto/" class="error-btn secondary">Browse Crypto</a>
+    </div>
+
+    <div class="error-tips">
+      <h3>Quick Tips:</h3>
+      <ul>
+        <li>Check the URL for typos</li>
+        <li>Try searching for your topic</li>
+        <li>Browse our news categories</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Page Not Found - 404 Error",
+  "description": "The requested page was not found on {{ site.name }}"
+}
+</script>
+
+<style>
+.error-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.error-content h1 {
+  font-size: 6rem;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.error-content h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.error-content p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.error-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.error-btn.primary {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.error-btn.primary:hover {
+  background: #16213e;
+  text-decoration: none;
+}
+
+.error-btn.secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.error-btn.secondary:hover {
+  background: #e0e0e0;
+  text-decoration: none;
+}
+
+.error-tips {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.error-tips h3 {
+  margin-bottom: 15px;
+  color: #1a1a2e;
+}
+
+.error-tips ul {
+  margin-left: 20px;
+  color: #555;
+}
+
+.error-tips li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .error-content h1 {
+    font-size: 4rem;
+  }
+
+  .error-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+  }
+
+  .error-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
