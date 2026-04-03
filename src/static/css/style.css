@@ -164,9 +164,70 @@ a:hover {
   background: linear-gradient(135deg, #fef9e7 0%, #fff9e6 100%);
   border: 2px solid #ffd700;
   border-radius: var(--radius-lg);
-  padding: 32px;
-  margin: 30px 0 40px;
+  padding: 24px;
+  margin: 0 0 24px;
   box-shadow: var(--shadow-md);
+}
+
+/* Sidebar promo - compact version */
+.sidebar-promo {
+  margin-bottom: 24px;
+}
+
+.sidebar-promo .promo-header {
+  margin-bottom: 16px;
+}
+
+.sidebar-promo .promo-icon {
+  font-size: 2.5rem;
+}
+
+.sidebar-promo .promo-title h2 {
+  font-size: 1.2rem;
+}
+
+.sidebar-promo .promo-subtitle {
+  font-size: 0.85rem;
+}
+
+.sidebar-promo .promo-reasons {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.sidebar-promo .reason-card {
+  padding: 10px 14px;
+}
+
+.sidebar-promo .reason-text {
+  font-size: 0.85rem;
+}
+
+.sidebar-promo .promo-cta {
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sidebar-promo .promo-code {
+  font-size: 0.85rem;
+}
+
+.sidebar-promo .promo-code code {
+  font-size: 1.1rem;
+  padding: 6px 12px;
+}
+
+.sidebar-promo .promo-btn {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.sidebar-promo .promo-disclaimer {
+  font-size: 0.7rem;
+  margin-top: 12px;
 }
 
 .promo-content {
