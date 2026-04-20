@@ -6,10 +6,15 @@
     "build": "eleventy",
     "build:static": "node scripts/build-static.js",
     "serve": "eleventy --serve",
-    "fetch": "node scripts/fetch-news.js"
+    "fetch": "node scripts/fetch-news.js",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
     "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.80.0"
   }
 }
